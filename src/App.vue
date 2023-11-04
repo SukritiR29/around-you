@@ -1,6 +1,5 @@
 <template>
- <div className="w-screen bg-[url('../src/assets/Landscape.jpg')] bg-opacity-20"  >
-   
+ <div className="w-screen bg-[url('../src/assets/weather-bg.png')] bg-opacity-20"  >
     <div class="flex flex-col min-h-screen font-Roboto">
    <navbar/> 
    <RouterView/>

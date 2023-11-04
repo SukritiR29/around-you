@@ -5,13 +5,29 @@
       <input type="text"
       v-model="query"
        placeholder="Search for the place"
-      class="py-2 pl-8 px-1 w-full bg-transparent border-b focus: border-secondary focus:outline-none text-xl placeholder:text-secondary"
+      class="py-2 pl-8 px-1 w-full bg-transparent border-b focus: border-secondary focus:outline-none text-lg placeholder:text-secondary"
       @keypress="fetchWeather">
+
+      <div v-if="!isSearched && !showWeekly">
+        <div className=" flex flex-row gap-10 ">
+         <img src="../assets/Summer.png" className="pr-20 ml-5"/>
+         <div className="flex flex-col">
+          <h2 className="text-left items-center justify-center mr-20 mt-20 text-3xl font-medium" style="margin-top: 130px;">
+            Welcome to the world near, far, and 
+          </h2>
+          <h1 className="text-left items-center justify-center mr-20 mt-10 text-5xl font-bold text-lime-400">
+            Around You
+          </h1>
+          <p className="w-4/5 mt-10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          </p>
+         </div>
+        </div>
+      </div>
       
       <ul
         class="absolute bg-weather-secondary text-white w-full shadow-md py-2 px-1 top-[66px]"
-        v-if="mapboxSearchResults"
-      >
+        v-if="mapboxSearchResults" >
         <p class="py-2" v-if="searchError">
           Sorry, something went wrong, please try again.
         </p>
@@ -39,13 +55,14 @@
     </div>
 
      <div v-show="weather">
+
       <div class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center mt-10 text-white shadow-lg"  >
-          <div class="location-box text-white p-4 backdrop-blur-xl shadow-lg w-96 text-center rounded-t-md">
+          <div class="location-box text-white p-4 backdrop-blur-lg shadow-xl w-96 text-center rounded-t-md">
             <div class="location text-2xl pb-2 font-sans font-bold">{{ weather?.name }}, {{ weather?.sys?.country }}</div>
             <div class="date text-xl italic">{{ dateBuilder() }}</div>
           </div>
 
-          <div class="weather-box justify-center text-center backdrop-blur-xl w-96 pr-3 rounded-b-md pb-2 shadow-lg">
+          <div class="weather-box justify-center text-center backdrop-blur-lg w-96 pr-3 rounded-b-md pb-2 shadow-lg ">
             <div class="temp text-5xl font-black pt-4">{{ Math.floor(weather?.main?.temp - 273.15) }}°C</div>
             <div class="weather text-3xl font-semibold pt-2 ">{{ weather?.weather[0]?.main }}</div>
             <div class="weather justify-center items-center flex">
@@ -110,6 +127,7 @@ export default {
     const error = ref(null);
     const showWeekly = ref(false);
     const icosn = 'https://openweathermap.org/img/wn/10d@2x.png';
+    const isSearched = ref(false);
     const icon = computed(()=>{
       return `https://openweathermap.org/img/wn/${weather?.value?.weather[0].icon}@2x.png`
     })
@@ -122,6 +140,7 @@ export default {
             return res.json();
           }).then(res =>{ weather.value = res;
             showWeekly.value = true;
+            isSearched.value = true; 
           console.log(weather.value)
           store.state.city = query;
           console.log("city",store.state.city)
@@ -137,7 +156,8 @@ export default {
             console.log("error", err.message)})
       }    
     }
-    
+
+
     function dateBuilder() {
       const d= new Date();
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -159,12 +179,10 @@ export default {
       weather,
       query,
       showWeekly,
-      icon
+      icon,
+      isSearched
     };
-    
-
- 
-    }
+    },
 
    }
    

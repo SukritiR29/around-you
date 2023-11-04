@@ -8,10 +8,10 @@
         <Transition name="about-inner">
           <div
             v-if="aboutActive"
-            class="p-4 bg-white self-start mt-32 max-w-screen-md"
+            class="p-4 bg-teal-700 self-start mt-32 max-w-screen-md rounded-xl"
           >
-          <div class="text-black bg-white ">
-            <h1 class="text-2xl mb-1">About:</h1>
+          <div class="text-black bg-teal-700 text-white ">
+            <h1 class="text-2xl mb-1 text-white">About:</h1>
             <p class="mb-4">
              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
@@ -40,7 +40,7 @@
             </p>
           </div>
             <button
-              class="text-white mt-8 bg-primary py-2 px-6"
+              class="text-white mt-8 bg-emerald-950 py-2 px-6 rounded-xl"
               @click="$emit('close-about')"
             >
               Close

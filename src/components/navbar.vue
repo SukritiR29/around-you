@@ -1,12 +1,12 @@
 <template>
-    <header class="sticky top-0 bg-weather-primary shadow-lg z-40 backdrop-blur-lg">
+    <header class="sticky top-0 bg-weather-primary shadow-md z-40 ">
       <nav
-        class="container flex flex-col sm:flex-row items-center gap-4 text-white py-6 z-40"
+        class="container flex flex-col sm:flex-row items-center gap-4 text-white pt-5 pb-2 z-40"
       >
         <RouterLink :to="{ name: 'home' }">
           <div class="flex items-center gap-3">
             <i class="fa-solid fa-sun-cloud text-2xl"></i>
-            <p class="text-2xl pl-5">Around You</p>
+            <p class="text-lg pl-5">Around You</p>
           </div>
         </RouterLink>
       
@@ -15,12 +15,12 @@
             <Alert/>
           </transition>
           <i
-            class="fa-solid fa-circle-info text-2xl text-right hover:text-weather-secondary duration-150 cursor-pointer pr-0"
+            class="fa-solid fa-circle-info text-xl text-right hover:text-secondary duration-150 cursor-pointer pr-0"
             @click="toggleAbout"
           ></i>
           <div>
           <i
-            class="fa-solid fa-plus text-2xl hover:text-secondary duration-150 cursor-pointer mr-0 "
+            class="fa-solid fa-plus text-xl hover:text-secondary duration-150 cursor-pointer mr-0 "
           @click="addCity">
           </i>
           </div>
