@@ -1,15 +1,20 @@
 <template>
- <div className="w-screen bg-[url('../src/assets/weather-bg.png')] bg-opacity-20"  >
-    <div class="flex flex-col min-h-screen font-Roboto">
-   <navbar/> 
-   <RouterView/>
+  <div class="w-screen bg-weather-bg">
 
-  
   </div>
-</div>
 </template>
 
 <script setup>
- import navbar from "./components/navbar.vue";
- import { RouterView } from "vue-router";
+
+
+import weatherBackground from '@/assets/weather-bg.png';
 </script>
+
+<style>
+.w-screen {
+  background-image: url('@/assets/weather-bg.png');
+  background-size: cover;
+  background-position: center;
+
+}
+</style>
