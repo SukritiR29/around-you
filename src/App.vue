@@ -1,5 +1,5 @@
   <template>
-    <div className="w-screen bg-opacity-20"  >
+    <div className="lg-w-screen bg-opacity-20 md-w-screen md-h-screen "  >
       <div class="flex flex-col min-h-screen font-Roboto">
       <navbar/> 
       <RouterView/>
@@ -21,4 +21,5 @@
   background-position: center;
   /* Add other styles as needed */
 }
+
 </style>

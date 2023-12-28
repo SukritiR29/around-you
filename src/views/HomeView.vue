@@ -9,8 +9,8 @@
       @keypress="fetchWeather">
 
       <div v-if="!isSearched && !showWeekly">
-        <div className=" flex flex-row gap-10 ">
-         <img src="../assets/Summer.png" className="pr-20 ml-5"/>
+        <div className=" flex flex-row sm:flex-row gap-10  ">
+         <img src="../assets/Summer.png" className="pr-20 ml-5 hidden sm:block"/>
          <div className="flex flex-col">
           <h2 className="text-left items-center justify-center mr-20 mt-20 text-3xl font-medium" style="margin-top: 130px;">
             Welcome to the world near, far, and 
