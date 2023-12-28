@@ -1,14 +1,16 @@
 <template>
-  <main class="container text-white" >
+  <main class="container text-white bg-emerald-950" >
     
-    <div class=" pt-4 mb-8 relative w-screen ">
+    <div class=" pt-4 mb-8 relative w-screen bg-emerald-950 ">
       <input type="text"
       v-model="query"
        placeholder="Search for the place"
       class="py-2 pl-8 px-1 w-full bg-transparent border-b focus: border-secondary focus:outline-none text-lg placeholder:text-secondary"
       @keypress="fetchWeather">
 
-      <div v-if="!isSearched && !showWeekly">
+
+
+      <div v-if="!isSearched && !showWeekly" >
         <div className=" flex flex-row sm:flex-row gap-10  ">
          <img src="../assets/Summer.png" className="pr-20 ml-5 hidden sm:block"/>
          <div className="flex flex-col">
@@ -54,9 +56,9 @@
       {{ error }}
     </div>
 
-     <div v-show="weather">
+     <div v-show="weather" class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center text-white shadow-lg" style="margin-top: -25rem;">
 
-      <div class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center mt-10 text-white shadow-lg"  >
+      <div class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center mt-10 text-white shadow-lg "  >
           <div class="location-box text-white p-4 backdrop-blur-lg shadow-xl w-96 text-center rounded-t-md">
             <div class="location text-2xl pb-2 font-sans font-bold">{{ weather?.name }}, {{ weather?.sys?.country }}</div>
             <div class="date text-xl italic">{{ dateBuilder() }}</div>
@@ -75,11 +77,10 @@
             <img class="w-[150pv] h-auto">
          <hr class="border-white border-opacity-10 border w-full" />
          </div>
+     
          <div v-if="showWeekly">
           <Weekly :query="query"/>
          </div>
-
-         
 
          <div class="flex flex-row justify-end">
     <div class=" Liked flex justify-end pl-5 mb-16">
@@ -111,7 +112,7 @@
 
 <script>
 import { ref, computed } from 'vue';
-import Weekly from '../components/Weekly.vue';
+import Weekly from '../components/WeeklyCard.vue';
 import store from '../store/store';
 export default {
   name: 'home',

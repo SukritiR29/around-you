@@ -1,6 +1,6 @@
   <template>
     <div className="lg-w-screen bg-emerald-950"  >
-      <div class="flex flex-col min-h-screen font-Roboto">
+      <div class="flex flex-col min-h-screen font-Roboto bg-emerald-950">
       <navbar/> 
       <RouterView/>
   
