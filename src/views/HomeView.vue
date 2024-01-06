@@ -77,10 +77,6 @@
             <img class="w-[150pv] h-auto">
          <hr class="border-white border-opacity-10 border w-full" />
          </div>
-     
-         <div v-if="showWeekly">
-          <Weekly :query="query"/>
-         </div>
 
          <div class="flex flex-row justify-end">
     <div class=" Liked flex justify-end pl-5">
@@ -93,7 +89,7 @@
 
           <!--weekly weather-->
 
-        <!-- <div>
+         <div>
           <button @click="getForecastData">Get Weekly Data</button>
             <div v-if="forecastData.length > 0">
             <div v-for="forecast in forecastData" :key="forecast.dt">
@@ -102,7 +98,7 @@
       </div>
     </div>
     
-        </div> -->
+        </div> 
 
         </div>
     </div> 
