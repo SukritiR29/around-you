@@ -91,8 +91,8 @@
 
           <!--weekly weather-->
 
-         <div>
-       <!--   <button @click="getForecastData">Get Weekly Data</button>
+        <!--   <div>
+        <button @click="getForecastData">Get Weekly Data</button>
             <div v-if="forecastData.length > 0">
             <div v-for="forecast in forecastData" :key="forecast.dt">
              <p>Date: {{ formatDate(forecast.dt) }}</p>
