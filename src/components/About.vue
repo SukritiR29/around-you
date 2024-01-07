@@ -13,34 +13,45 @@
           <div class="text-black bg-teal-700 text-white ">
             <h1 class="text-2xl mb-1 text-white">About:</h1>
             <p class="mb-4">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              Around You is a weather application that provides real-time weather updates for cities around the globe. The project is built using VueJS, VueX, TailwindCSS, and the Open Weather API. This application serves as a comprehensive example of working with JavaScript libraries, styling libraries, and API integrations within a project.
             </p>
             <h2 class="text-2xl">How it works:</h2>
             <ol class="list-decimal list-inside mb-4">
               <li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
+                Real-time weather updates for cities worldwide.
               </li>
               <li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
+                User-friendly interface built with VueJS and TailwindCSS.
               </li>
               <li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
+                Integration with the Open Weather API for accurate and up-to-date weather information.
+              </li>
+              <li>
+                Ability to add desired cities to your favorite list.
+              </li>
+              <li>
+                Organized view to keep track of your favorite cities and their weather conditions.
               </li>
             </ol>
 
-            <h2 class="text-2xl">Removing a city</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <h2 class="text-2xl">Tech Stack</h2>
+           <ol>
+            <li>
+              VueJS: A progressive JavaScript framework for building user interfaces.
+            </li>
+            <li>
+              VueX: A state management pattern and library for Vue.js applications.
+            </li>
+            <li>
+              TailwindCSS: A utility-first CSS framework for rapid UI development.
+            </li>
+            <li>
+              Open Weather API: Provides weather data for cities worldwide.
+            </li>
+           </ol>
           </div>
             <button
-              class="text-white mt-8 bg-emerald-950 py-2 px-6 rounded-xl"
+              class="text-white bg-teal-900 mt-4  py-2 px-6 rounded-xl"
               @click="$emit('close-about')"
             >
               Close
