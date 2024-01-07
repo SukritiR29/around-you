@@ -55,7 +55,7 @@
       {{ error }}
     </div>
 
-     <div v-show="weather" class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center text-white shadow-lg" style="margin-top: -25rem;">
+     <div v-show="weather" class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center text-white shadow-lg" style="margin-top: -35rem;">
 
       <div class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center mt-10 text-white shadow-lg "  >
           <div class="location-box text-white p-4 backdrop-blur-lg shadow-xl w-96 text-center rounded-t-md">
@@ -82,7 +82,7 @@
          </div>
 
          <div class="flex flex-row justify-end">
-    <div class=" Liked flex justify-end pl-5 mb-16">
+    <div class=" Liked flex justify-end pl-5 mb-30">
       <RouterLink to="/fovorite">
       <button class="bg-secondary text-lg text-baisc hover:bg-baisc hover:text-white mt-10 font-semibold py-2 px-4 rounded">
    View Favorites</button>
