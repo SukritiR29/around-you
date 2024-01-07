@@ -24,6 +24,13 @@
           @click="addCity">
           </i>
           </div>
+                   <div class=" text-xl text-right hover:text-secondary duration-150 cursor-pointer pr-3">
+      <RouterLink to="/fovorite">
+      <button class="text-white">
+        <i class="fa-solid fa-heart"></i>
+      </button>
+  </RouterLink>
+    </div>
         </div>
   
         <About
