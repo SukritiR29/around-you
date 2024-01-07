@@ -1,7 +1,7 @@
 <template>
-  <main class="container text-white bg-emerald-950" >
+  <main class="container text-white " >
     
-    <div class=" pt-4 mb-8 relative w-screen bg-emerald-950 ">
+    <div class=" pt-4 mb-8 relative w-screen">
       <input type="text"
       v-model="query"
        placeholder="Search for the place"
@@ -11,17 +11,16 @@
 
 
       <div v-if="!isSearched && !showWeekly" >
-        <div className=" flex flex-row sm:flex-row gap-10  ">
-         <img src="../assets/Summer.png" className="pr-20 ml-5 hidden sm:block"/>
-         <div className="flex flex-col">
-          <h2 className="text-left items-center justify-center mr-20 mt-20 text-3xl font-medium" style="margin-top: 130px;">
+        <div className=" flex flex-row sm:flex-row gap-10 rounded ">
+\         <div className="flex flex-col justify-center text-center items-center lg:ml-[300px] sm:ml-[100px] mt-10 w-1/2 backdrop-blur-3xl rounded-lg">
+          <h2 className="text-left items-center justify-center mt-5 text-3xl font-medium back-blur-lg" >
             Welcome to the world near, far, and 
           </h2>
-          <h1 className="text-left items-center justify-center mr-20 mt-10 text-5xl font-bold text-lime-400">
+          <h1 className="text-left items-center justify-center mt-5 text-5xl font-bold text-slate-50">
             Around You
           </h1>
-          <p className="w-4/5 mt-10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          <p className="w-4/5 mt-5 mb-5">
+            Around You is a weather application that provides real-time weather updates for cities around the globe. The project is built using VueJS, VueX, TailwindCSS, and the Open Weather API. This application serves as a comprehensive example of working with JavaScript libraries, styling libraries, and API integrations within a project.
           </p>
          </div>
         </div>
@@ -56,7 +55,7 @@
       {{ error }}
     </div>
 
-     <div v-show="weather" class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center text-white shadow-lg" style="margin-top: -40rem;">
+     <div v-show="weather" class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center text-white shadow-lg" style="margin-top: -25rem;">
 
       <div class="weather-wrap flex flex-col flex-1 items-center w-screen justify-center mt-10 text-white shadow-lg "  >
           <div class="location-box text-white p-4 backdrop-blur-lg shadow-xl w-96 text-center rounded-t-md">
@@ -77,30 +76,20 @@
             <img class="w-[150pv] h-auto">
          <hr class="border-white border-opacity-10 border w-full" />
          </div>
-        <div v-if="showWeekly">
+     
+         <div v-if="showWeekly">
           <Weekly :query="query"/>
          </div>
+
          <div class="flex flex-row justify-end">
-    <div class=" Liked flex justify-end pl-5">
+    <div class=" Liked flex justify-end pl-5 mb-16">
       <RouterLink to="/fovorite">
       <button class="bg-secondary text-lg text-baisc hover:bg-baisc hover:text-white mt-10 font-semibold py-2 px-4 rounded">
    View Favorites</button>
   </RouterLink>
     </div>
     </div>
-
-          <!--weekly weather-->
-
-        <!--   <div>
-        <button @click="getForecastData">Get Weekly Data</button>
-            <div v-if="forecastData.length > 0">
-            <div v-for="forecast in forecastData" :key="forecast.dt">
-             <p>Date: {{ formatDate(forecast.dt) }}</p>
-             <p>Temperature: {{ forecast.temp }}°C</p>
-      </div>
-    </div>
     
-        </div> -->
 
         </div>
     </div> 
@@ -125,36 +114,36 @@ export default {
     const weather= ref(null);
     const error = ref(null);
     const showWeekly = ref(false);
-    const icosn = 'https://openweathermap.org/img/wn/10d@2x.png';
     const isSearched = ref(false);
-    const icon = computed(()=>{
+     const icon = computed(()=>{
       return `https://openweathermap.org/img/wn/${weather?.value?.weather[0].icon}@2x.png`
     })
   
     function fetchWeather(event)  {
-      console.log("clicked")
-      if (event.key == "Enter") {
-        fetch(`${url_base}weather?q=${query.value}&appid=${api_key}`)
-          .then(res => {
-            return res.json();
-          }).then(res =>{ weather.value = res;
-            showWeekly.value = true;
-            isSearched.value = true; 
-          console.log(weather.value)
+  if (event.key == "Enter") {
+    fetch(`${url_base}weather?q=${query.value}&appid=${api_key}`)
+      .then(res => res.json())
+      .then(res => {
+        if (res.cod === 200) {
+          weather.value = res;
+          showWeekly.value = true;
+          isSearched.value = true; 
+          console.log(weather.value);
           store.state.city = query;
-          console.log("city",store.state.city)
-        })
-        .then(res =>  {
-          if (res && res.list) {
-            weather.value = res.list.slice(0, 5); 
-          }
-          
-        })
-          .catch(err=> {
-            error.value = err.message;
-            console.log("error", err.message)})
-      }    
-    }
+          console.log("city", store.state.city);
+        } else {
+          // Handle API error, you might want to set error.value here.
+          console.error(res.message);
+        }
+      })
+      .catch(err => {
+        error.value = err.message;
+        console.log("error", err.message);
+      });
+  }
+}
+
+    
 
 
     function dateBuilder() {
@@ -189,4 +178,3 @@ export default {
   
   
 </script>
-
