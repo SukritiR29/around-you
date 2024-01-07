@@ -1,7 +1,7 @@
 <template>
  
     <div
-      class="flex flex-col py-6 backdrop-blur-lg bg-white opacity-50 rounded-md shadow-md cursor-pointer gap-2 mb-6 w-52 text-center ml-28 mt-10"
+      class="flex flex-col py-6 backdrop-blur-3xl bg-white opacity-50 rounded-md shadow-md cursor-pointer gap-2 mb-6 w-52 text-center ml-28 mt-10"
       :v-if="weather" 
     >
       <div class="flex flex-col flex-1 text-primary text-center font-semibold" >
